@@ -794,7 +794,7 @@ function ContactSection() {
                   <Facebook className="size-5" />
                 </a>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/jessicakeltner_pt/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="size-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
