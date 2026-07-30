@@ -456,6 +456,116 @@ function ServicesSection() {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   INSIDE THE PRACTICE — REAL PHOTOS
+   ═══════════════════════════════════════════════════════════ */
+function CareSection() {
+  const steps = [
+    {
+      title: "We start with how you move",
+      desc: "A hands-on functional assessment to find the movement patterns behind your pain — not just the spot that hurts.",
+    },
+    {
+      title: "One-on-one, every visit",
+      desc: "You work directly with Jessica for the full session. No handing you off, no crowded gym floor.",
+    },
+    {
+      title: "You leave with a plan",
+      desc: "Targeted exercises and strategies you can actually keep doing between visits and long after you're discharged.",
+    },
+  ];
+
+  return (
+    <section className="py-20 md:py-28" style={{ backgroundColor: C.white }}>
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Left: tall coaching photo */}
+          <FadeIn>
+            <div
+              className="overflow-hidden rounded-2xl"
+              style={{ boxShadow: `0 24px 60px -20px ${C.dark}40` }}
+            >
+              <img
+                src="/care-coaching.webp"
+                alt="Jessica Keltner guiding a patient through resistance band and posture work in her Springfield clinic"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </FadeIn>
+
+          {/* Right: copy + wide assessment photo */}
+          <div>
+            <FadeIn>
+              <span
+                className="text-xs font-semibold tracking-[0.2em] uppercase mb-3 block"
+                style={{ color: C.sage }}
+              >
+                Inside The Practice
+              </span>
+              <h2
+                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+                style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  color: C.dark,
+                }}
+              >
+                What A Visit
+                <br />
+                Looks Like
+              </h2>
+
+              <div className="space-y-6 mb-10">
+                {steps.map((s, i) => (
+                  <div key={s.title} className="flex gap-4">
+                    <span
+                      className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
+                      style={{
+                        backgroundColor: C.lightGreen,
+                        color: C.forest,
+                      }}
+                    >
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3
+                        className="text-base md:text-lg font-bold mb-1"
+                        style={{ color: C.dark }}
+                      >
+                        {s.title}
+                      </h3>
+                      <p
+                        className="text-sm md:text-base leading-relaxed"
+                        style={{ color: C.text }}
+                      >
+                        {s.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={150}>
+              <div
+                className="overflow-hidden rounded-2xl"
+                style={{ boxShadow: `0 18px 44px -18px ${C.dark}33` }}
+              >
+                <img
+                  src="/care-assessment.webp"
+                  alt="Hands-on postural and spinal assessment during a physical therapy session"
+                  className="w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
    ABOUT / PHILOSOPHY SECTION
    ═══════════════════════════════════════════════════════════ */
 function AboutSection() {
@@ -463,7 +573,7 @@ function AboutSection() {
     <section
       id="about"
       className="py-20 md:py-28 relative overflow-hidden"
-      style={{ backgroundColor: C.white }}
+      style={{ backgroundColor: C.cream }}
     >
       {/* Decorative background */}
       <div
@@ -899,6 +1009,7 @@ export function PublicLandingPage() {
         <HeroSection />
         <TrustBar />
         <ServicesSection />
+        <CareSection />
         <AboutSection />
         <QuoteBanner />
         <ContactSection />
