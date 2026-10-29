@@ -209,98 +209,124 @@ function Navigation() {
 /* ═══════════════════════════════════════════════════════════
    HERO SECTION
    ═══════════════════════════════════════════════════════════ */
+const HERO_PHOTO = "/hero-jessica-a.webp";
+
 function HeroSection() {
   return (
     <section
-      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden"
-      style={{ backgroundColor: C.dark }}
+      className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24 lg:min-h-[100dvh] lg:flex lg:items-center"
+      style={{ backgroundColor: C.cream }}
     >
-      {/* Background photo */}
-      <img
-        src="/hero-bg.webp"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
-      {/* Light overlay for text readability — fresh and inviting */}
+      {/* Soft mint glow behind the photo */}
       <div
-        className="absolute inset-0"
+        aria-hidden
+        className="absolute -top-32 -right-32 w-[640px] h-[640px] rounded-full pointer-events-none"
         style={{
-          background: `linear-gradient(180deg, ${C.white}e8 0%, ${C.white}cc 50%, ${C.cream}e8 100%)`,
+          background: `radial-gradient(circle, ${C.mint}66 0%, ${C.cream}00 70%)`,
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-8 text-center">
-        <FadeIn>
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase mb-8"
-            style={{
-              border: `1px solid ${C.forest}33`,
-              color: C.forest,
-              backgroundColor: `${C.white}aa`,
-            }}
-          >
-            <Activity className="size-3" />
-            Licensed Physical Therapist &mdash; Springfield, MO
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={100}>
-          <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] mb-6"
-            style={{ fontFamily: "'DM Serif Display', serif", color: C.dark }}
-          >
-            Move Better.
-            <br />
-            <span style={{ color: C.forest }}>Feel Stronger.</span>
-            <br />
-            <span
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-              style={{ color: C.dark }}
-            >
-              Thrive.
-            </span>
-          </h1>
-        </FadeIn>
-
-        <FadeIn delay={200}>
-          <p
-            className="text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-            style={{ color: C.text }}
-          >
-            Personalized physical therapy and functional wellness programs
-            designed to help you prevent injury, build resilience, and
-            get back to doing what you love.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={300}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="tel:4175973716"
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
-              style={{ backgroundColor: C.forest, color: C.white }}
-            >
-              <Phone className="size-4" />
-              Call or Text: 417-597-3716
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-full text-base font-medium transition-all duration-300 hover:bg-black/5"
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+        {/* Copy */}
+        <div className="text-center lg:text-left">
+          <FadeIn>
+            <div
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wider uppercase mb-8"
               style={{
-                border: `1px solid ${C.forest}44`,
+                border: `1px solid ${C.forest}33`,
                 color: C.forest,
+                backgroundColor: `${C.white}aa`,
               }}
             >
-              Learn More
-              <ChevronDown className="size-4" />
-            </a>
+              <Activity className="size-3" />
+              Licensed Physical Therapist &mdash; Springfield, MO
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] mb-6"
+              style={{ fontFamily: "'DM Serif Display', serif", color: C.dark }}
+            >
+              Move Better.
+              <br />
+              <span style={{ color: C.forest }}>Feel Stronger.</span>
+              <br />
+              <span
+                className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl"
+                style={{ color: C.dark }}
+              >
+                Thrive.
+              </span>
+            </h1>
+          </FadeIn>
+
+          <FadeIn delay={200}>
+            <p
+              className="text-base md:text-lg lg:text-xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+              style={{ color: C.text }}
+            >
+              Personalized physical therapy and functional wellness programs
+              designed to help you prevent injury, build resilience, and
+              get back to doing what you love.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={300}>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a
+                href="tel:4175973716"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 hover:scale-[1.03] hover:shadow-lg"
+                style={{ backgroundColor: C.forest, color: C.white }}
+              >
+                <Phone className="size-4" />
+                Call or Text: 417-597-3716
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#services"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-full text-base font-medium transition-all duration-300 hover:bg-black/5"
+                style={{
+                  border: `1px solid ${C.forest}44`,
+                  color: C.forest,
+                }}
+              >
+                Learn More
+                <ChevronDown className="size-4" />
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+
+        {/* Photo */}
+        <FadeIn delay={150}>
+          <div className="relative max-w-md mx-auto lg:max-w-none">
+            {/* Offset frame */}
+            <div
+              aria-hidden
+              className="absolute -inset-3 md:-inset-4 rounded-[2rem] rotate-[-2deg]"
+              style={{ backgroundColor: C.mint, opacity: 0.55 }}
+            />
+            <img
+              src={HERO_PHOTO}
+              alt="Jessica Keltner working with a patient in her Springfield clinic"
+              className="relative w-full aspect-[4/5] object-cover rounded-[1.75rem] shadow-2xl"
+              style={{ boxShadow: `0 30px 60px -20px ${C.dark}55` }}
+            />
+            {/* Caption pill */}
+            <div
+              className="absolute left-4 bottom-4 md:left-6 md:bottom-6 inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs md:text-sm font-medium shadow-lg"
+              style={{ backgroundColor: `${C.white}f2`, color: C.dark }}
+            >
+              <span
+                className="size-2 rounded-full"
+                style={{ backgroundColor: C.accent }}
+              />
+              One-on-one care, every visit
+            </div>
           </div>
         </FadeIn>
       </div>
-
-      {/* Clean bottom edge — no gradient shadow */}
     </section>
   );
 }
