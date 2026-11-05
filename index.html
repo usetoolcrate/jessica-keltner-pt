@@ -6,6 +6,25 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <!-- Google Analytics: visits, plus taps on phone, text and email links and sent forms
+         (generate_lead). Only the real domain reports, never local runs or previews. -->
+    <script>
+      if (/(^|\.)keltnerpt\.com$/.test(location.hostname)) {
+        var ga = document.createElement("script");
+        ga.async = true;
+        ga.src = "https://www.googletagmanager.com/gtag/js?id=G-42FE19Q7C6";
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag("js", new Date());
+        gtag("config", "G-42FE19Q7C6");
+        document.addEventListener("click", function (e) {
+          var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="sms:"], a[href^="mailto:"]');
+          if (a) gtag("event", { "tel:": "phone_click", "sms:": "text_click", "mailto:": "email_click" }[a.protocol]);
+        }, true);
+        document.addEventListener("submit", function () { gtag("event", "generate_lead", { page_path: location.pathname }); }, true);
+      }
+    </script>
     <title>Jessica Keltner PT | Functional Wellness &amp; Physical Therapy</title>
     <meta name="description" content="Licensed physical therapist in Springfield, MO. Helping you move better, feel stronger, prevent injury, and thrive. Call or text 417-597-3716." />
 
